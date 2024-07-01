@@ -9,6 +9,7 @@ public class AppUserConfig : IEntityTypeConfiguration<AppUser>
     public void Configure(EntityTypeBuilder<AppUser> builder)
     {
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).IsUnicode(false);
         builder.Property(x => x.GivenName).HasMaxLength(256).IsUnicode(false);
         builder.Property(x => x.UserName).HasMaxLength(256).IsUnicode(false);
         builder.Property(x => x.Email).HasMaxLength(256).IsUnicode(false);
