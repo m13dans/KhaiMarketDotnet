@@ -10,7 +10,7 @@ public class EFDbContext(DbContextOptions options) : IdentityDbContext<AppUser>(
 {
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
+        base.OnModelCreating(builder); // make sure to call the base if configuring the IdentityTable 
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

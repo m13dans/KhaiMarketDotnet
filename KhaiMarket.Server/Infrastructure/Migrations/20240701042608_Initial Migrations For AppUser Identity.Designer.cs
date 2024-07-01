@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KhaiMarket.Server.Infrastructure.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20240701032234_Initial Migrations For AppUser Identity")]
+    [Migration("20240701042608_Initial Migrations For AppUser Identity")]
     partial class InitialMigrationsForAppUserIdentity
     {
         /// <inheritdoc />
@@ -31,7 +31,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(900)");
 
                     b.HasKey("AddressesId", "AppUserId");
 
@@ -86,7 +86,8 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
             modelBuilder.Entity("KhaiMarket.Server.Entities.AppUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(900)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -224,7 +225,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(900)");
 
                     b.HasKey("Id");
 
@@ -246,7 +247,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(900)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -258,7 +259,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(900)");
 
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
@@ -273,7 +274,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(900)");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
