@@ -28,7 +28,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AppUserId")
-                        .HasColumnType("varchar(900)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("AddressesId", "AppUserId");
 
@@ -83,8 +83,9 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
             modelBuilder.Entity("KhaiMarket.Server.Entities.AppUser", b =>
                 {
                     b.Property<string>("Id")
+                        .HasMaxLength(256)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(900)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -222,7 +223,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("varchar(900)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -244,7 +245,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("varchar(900)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -256,7 +257,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(900)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
@@ -271,7 +272,7 @@ namespace KhaiMarket.Server.Infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(900)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
