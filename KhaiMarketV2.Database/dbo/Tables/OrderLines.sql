@@ -6,7 +6,8 @@ CREATE TABLE [dbo].[OrderLines] (
     [TotalDiscount]      MONEY NULL,
     [TotalPrice]         INT   NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_OrderLines.ShopOrderId] FOREIGN KEY ([ShopOrderId]) REFERENCES [dbo].[ShopOrders] ([Id])
+    CONSTRAINT [FK_OrderLines.ShopOrderId] FOREIGN KEY ([ShopOrderId]) REFERENCES [dbo].[ShopOrders] ([Id]),
+    CONSTRAINT [FK_OrderLines.UserShoppingCartId] FOREIGN KEY ([UserShoppingCartId]) REFERENCES [dbo].[UserShoppingCarts] ([Id])
 );
 
 
