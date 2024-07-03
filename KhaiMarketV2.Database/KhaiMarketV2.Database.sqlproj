@@ -2,15 +2,11 @@
 <Project DefaultTargets="Build">
   <Sdk Name="Microsoft.Build.Sql" Version="0.1.12-preview" />
   <PropertyGroup>
-    <Name>KhaiMarket.Database</Name>
-    <ProjectGuid>{DA618B5E-7330-4634-8649-E2C454874C98}</ProjectGuid>
+    <Name>KhaiMarketV2.Database</Name>
+    <ProjectGuid>{6B2E4BBE-895C-4B5E-8C63-FEDF92A9B12F}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <ModelCollation>1033, CI</ModelCollation>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Dbo" />
-    <Folder Include="Dbo\Table" />
-  </ItemGroup>
   <Target Name="BeforeBuild">
     <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
   </Target>

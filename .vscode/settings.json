@@ -1,5 +1,7 @@
 {
     "dataworkspace.excludedProjects": [
-        "KhaiMarketV2_Database_Project/KhaiMarketV2_Database_Project.sqlproj"
+        "KhaiMarketV2_Database_Project/KhaiMarketV2_Database_Project.sqlproj",
+        "KhaiMarket.Database/Dbo/Table/DatabaseProjectMyblog/DatabaseProjectMyblog.sqlproj",
+        "KhaiMarket.Database/KhaiMarket.Database.sqlproj"
     ]
 }

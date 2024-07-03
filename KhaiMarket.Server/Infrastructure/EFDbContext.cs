@@ -1,6 +1,5 @@
 using System.Reflection;
 using KhaiMarket.Server.Entities;
-using KhaiMarket.Server.Infrastructure.Configurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
