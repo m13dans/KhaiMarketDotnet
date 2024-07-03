@@ -10,5 +10,4 @@ namespace KhaiMarket.Server.Entities;
 public class AppUser : IdentityUser
 {
     public string GivenName { get; set; } = string.Empty;
-    public ICollection<Address> Addresses { get; set; } = [];
 }

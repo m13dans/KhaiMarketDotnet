@@ -1,0 +1,5 @@
+{
+    "dataworkspace.excludedProjects": [
+        "KhaiMarketV2_Database_Project/KhaiMarketV2_Database_Project.sqlproj"
+    ]
+}
