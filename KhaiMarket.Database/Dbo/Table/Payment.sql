@@ -1,7 +1,7 @@
 USE [KhaiMarketV2App]
 GO
 
-/****** Object:  Table [dbo].[Payment]    Script Date: 03/07/2024 10:32:33 ******/
+/****** Object:  Table [dbo].[Payments]    Script Date: 03/07/2024 10:32:33 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -23,10 +23,10 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Payment]  WITH CHECK ADD  CONSTRAINT [FK_Payment.AspNetUsersId] FOREIGN KEY([AspNetUsersId])
+ALTER TABLE [dbo].[Payments]  WITH CHECK ADD  CONSTRAINT [FK_Payments.AspNetUsersId] FOREIGN KEY([AspNetUsersId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
 GO
 
-ALTER TABLE [dbo].[Payment] CHECK CONSTRAINT [FK_Payment.AspNetUsersId]
+ALTER TABLE [dbo].[Payments] CHECK CONSTRAINT [FK_Payments.AspNetUsersId]
 GO
 
