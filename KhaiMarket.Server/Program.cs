@@ -1,4 +1,5 @@
 using KhaiMarket.Server.Entities;
+using KhaiMarket.Server.Features.ProductFeature;
 using KhaiMarket.Server.Infrastructure;
 using KhaiMarket.Server.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -16,6 +17,11 @@ builder.Services.AddDbContext<EFDbContext>(o =>
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<EFDbContext>();
 
+
+builder.Services.AddTransient<IDbConnectionFactory, DbConnectionFactory>();
+builder.Services.AddTransient<GetProductRepository>();
+builder.Services.AddTransient<GetProductService>();
+
 var app = builder.Build();
 
 await app.ApplyMigration();
@@ -28,5 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapProductEndPoint();
 
 app.Run();

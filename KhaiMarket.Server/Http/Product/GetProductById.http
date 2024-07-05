@@ -1,0 +1,6 @@
+@url = http://localhost:5056
+
+GET {{url}}/api/products/2
+Accept: application/json
+
+###

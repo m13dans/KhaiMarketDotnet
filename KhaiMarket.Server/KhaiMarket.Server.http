@@ -1,6 +1,0 @@
-@KhaiMarket.Server_HostAddress = http://localhost:5056
-
-GET {{KhaiMarket.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
