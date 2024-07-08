@@ -9,14 +9,25 @@ using KhaiMarket.Server.Infrastructure;
 
 namespace KhaiMarket.Server.Features.ProductFeature;
 
-public class GetProductService(GetProductRepository repo)
+public class GetProductsService(IDbConnectionFactory db)
 {
-    private readonly GetProductRepository _repo = repo;
-
-    public async Task<ErrorOr<Product>> GetProductById(int id)
+    private readonly IDbConnectionFactory _db = db;
+    public async Task<ErrorOr<List<Product>>> GetProducts()
     {
-        ErrorOr<Product> result = await _repo.GetProductById(id);
-        return result;
+        var sql = "SELECT * FROM Products";
+        var connection = _db.CreateOpenConnection();
+        var result = await connection.QueryAsync<Product>(sql, param: new { });
+
+        if (result is null)
+        {
+            var error = Error.NotFound(
+                code: "404",
+                description: $"There is no product in here");
+            return error;
+        }
+
+        var products = result.ToList();
+        return products;
     }
 }
 

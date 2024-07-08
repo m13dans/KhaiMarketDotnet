@@ -1,0 +1,6 @@
+@KhaiMarket= http://localhost:5100
+
+GET {{KhaiMarket}}/weatherforecast/
+Accept: application/json
+
+###

@@ -6,15 +6,6 @@ namespace KhaiMarket.Server.Features.ProductFeature;
 
 public static partial class ProductEndPoint
 {
-    public static void MapProductEndPoint(this IEndpointRouteBuilder app)
-    {
-        var endpoints = app.MapGroup("api/products")
-            .WithOpenApi()
-            .WithTags("Products");
-
-        endpoints.MapGet("/{id:int}", GetProductById);
-    }
-
     private static async Task<Results<Ok<Product>, ProblemHttpResult>> GetProductById(
         [FromServices] GetProductService productService,
         int id)

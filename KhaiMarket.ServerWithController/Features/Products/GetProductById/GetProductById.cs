@@ -1,21 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Dapper;
 using ErrorOr;
-using KhaiMarket.Server.Entities;
-using KhaiMarket.Server.Infrastructure;
+using KhaiMarket.ServerWithController.Entities;
+using KhaiMarket.ServerWithController.Infrastructure;
 
-namespace KhaiMarket.Server.Features.ProductFeature;
-public class GetProductRepository
+namespace KhaiMarket.ServerWithController.Features.Products;
+
+public class GetProductByIdService
 {
-    private readonly IDbConnectionFactory _dbConnection;
-    public GetProductRepository(IDbConnectionFactory dbConnection)
+    private readonly IDbConnectionFactory _db;
+    public GetProductByIdService(IDbConnectionFactory db)
     {
-        _dbConnection = dbConnection;
+        _db = db;
     }
 
     public async Task<ErrorOr<Product>> GetProductById(int id)
     {
         var sql = "SELECT * FROM Products WHERE Id = @id";
-        var connection = _dbConnection.CreateOpenConnection();
+        using var connection = _db.CreateOpenConnection();
         var result = await connection.QuerySingleOrDefaultAsync<Product>(sql, param: new { id });
 
         if (result is null)
@@ -28,5 +33,4 @@ public class GetProductRepository
 
         return result;
     }
-
 }

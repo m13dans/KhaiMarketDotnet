@@ -2,8 +2,11 @@ using KhaiMarket.Server.Entities;
 using KhaiMarket.Server.Features.ProductFeature;
 using KhaiMarket.Server.Infrastructure;
 using KhaiMarket.Server.Infrastructure.Extensions;
+using KhaiMarket.Server.Middleware;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using KhaiMarket.Server.Features.ProductFeature.AddProduct;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,11 +22,15 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
 
 
 builder.Services.AddTransient<IDbConnectionFactory, DbConnectionFactory>();
-builder.Services.AddTransient<GetProductRepository>();
-builder.Services.AddTransient<GetProductService>();
+builder.Services.AddProductServices();
+
+builder.Services.AddScoped<IValidator<AddProductRequest>, AddProductValidator>();
+builder.Services.AddExceptionHandler<GlobalExeption>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
 await app.ApplyMigration();
 
 // Configure the HTTP request pipeline.
@@ -36,5 +43,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapProductEndPoint();
+
+app.MapPost("/addproduct", (
+    HttpContext context,
+    AddProductRequest productReq) => context.Response.WriteAsJsonAsync(productReq));
 
 app.Run();
