@@ -6,12 +6,12 @@ using KhaiMarket.Server.Features.ProductFeature.AddProduct;
 
 namespace KhaiMarket.Server.Features.ProductFeature;
 
-public static class ProductService
+public static class RegisterProductService
 {
     public static void AddProductServices(this IServiceCollection services)
     {
         services.AddTransient<GetProductService>();
         services.AddTransient<AddProductService>();
-        services.AddTransient<CheckCategoryService>();
+        services.AddTransient<ValidateProductService>();
     }
 }
