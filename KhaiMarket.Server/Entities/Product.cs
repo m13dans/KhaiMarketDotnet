@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,9 @@ namespace KhaiMarket.Server.Entities;
 public class Product
 {
     public int Id { get; set; }
+    [Required]
     public required string Name { get; set; }
+    [Required]
     public required string Description { get; set; }
     public int Stock { get; set; }
     public decimal Price { get; set; }
