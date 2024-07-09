@@ -12,7 +12,6 @@ public static partial class ProductEndPoint
     private static async
         Task<Results<CreatedAtRoute<Product>, ValidationProblem>>
     AddProduct(
-        IValidator<AddProductRequest> validator,
         AddProductService productService,
         AddProductRequest product)
     {
