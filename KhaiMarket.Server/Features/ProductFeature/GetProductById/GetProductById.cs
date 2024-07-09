@@ -9,7 +9,7 @@ using KhaiMarket.Server.Infrastructure;
 
 namespace KhaiMarket.Server.Features.ProductFeature;
 
-public class GetProductService(IDbConnectionFactory db)
+public class GetProductByIdService(IDbConnectionFactory db)
 {
     private readonly IDbConnectionFactory _db = db;
     public async Task<ErrorOr<Product>> GetProductById(int id)

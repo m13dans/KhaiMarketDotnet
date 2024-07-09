@@ -22,7 +22,7 @@ public class GetProductsService(IDbConnectionFactory db)
         {
             var error = Error.NotFound(
                 code: "404",
-                description: $"There is no product in here");
+                description: $"Product list is empty");
             return error;
         }
 

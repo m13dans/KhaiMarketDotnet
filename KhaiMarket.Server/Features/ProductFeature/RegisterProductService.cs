@@ -10,7 +10,7 @@ public static class RegisterProductService
 {
     public static void AddProductServices(this IServiceCollection services)
     {
-        services.AddTransient<GetProductService>();
+        services.AddTransient<GetProductByIdService>();
         services.AddTransient<AddProductService>();
         services.AddTransient<ValidateProductService>();
     }
