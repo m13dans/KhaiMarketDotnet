@@ -7,7 +7,7 @@ namespace KhaiMarket.Server.Features.ProductFeature;
 public static partial class ProductEndPoint
 {
     private static async Task<Results<Ok<Product>, ProblemHttpResult>> GetProductById(
-        [FromServices] GetProductByIdService productService,
+        GetProductByIdService productService,
         int id)
     {
         var result = await productService.GetProductById(id);

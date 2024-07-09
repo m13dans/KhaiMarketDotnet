@@ -14,8 +14,10 @@ public static partial class ProductEndPoint
             .WithOpenApi()
             .WithTags("Products");
 
-        endpoints.MapGet("", GetProducts);
-        endpoints.MapGet("/{id:int}", GetProductById);
+        endpoints.MapGet("", GetProducts)
+            .ProducesProblem(404, "application/problem+json");
+        endpoints.MapGet("/{id:int}", GetProductById)
+            .ProducesProblem(404, "application/problem+json");
 
         endpoints.MapPost("", AddProduct)
             .AddEndpointFilter<ValidationFilter<AddProductRequest>>();

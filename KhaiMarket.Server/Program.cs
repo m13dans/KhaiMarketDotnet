@@ -44,8 +44,4 @@ app.UseHttpsRedirection();
 
 app.MapProductEndPoint();
 
-app.MapPost("/addproduct", (
-    HttpContext context,
-    AddProductRequest productReq) => context.Response.WriteAsJsonAsync(productReq));
-
 app.Run();
