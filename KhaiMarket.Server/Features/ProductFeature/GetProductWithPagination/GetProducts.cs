@@ -30,34 +30,3 @@ public class GetProductsService(IDbConnectionFactory db)
         return products;
     }
 }
-
-
-/* public partial class ProductRepository : IProductRepository
-{
-    Task<IAsyncEnumerable<Product>> IProductRepository.GetProductWithPagination()
-    {
-        throw new NotImplementedException();
-    }
-}
-public partial class ProductRepository : IProductRepository
-{
-    public async Task AddProduct(Product product)
-    {
-        throw new NotImplementedException();
-    }
-}
-public partial class ProductRepository : IProductRepository
-{
-    public async Task UpdateProduct(Product product)
-    {
-        throw new NotImplementedException();
-    }
-}
-public partial class ProductRepository : IProductRepository
-{
-    public async Task DeleteProduct(int id)
-    {
-        throw new NotImplementedException();
-    }
-}
- */
