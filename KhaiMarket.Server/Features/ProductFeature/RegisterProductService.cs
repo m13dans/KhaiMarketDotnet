@@ -13,6 +13,6 @@ public static class RegisterProductService
         services.AddTransient<GetProductsService>();
         services.AddTransient<GetProductByIdService>();
         services.AddTransient<AddProductService>();
-        services.AddTransient<ValidateProductService>();
+        services.AddTransient<ProductValidatorService>();
     }
 }

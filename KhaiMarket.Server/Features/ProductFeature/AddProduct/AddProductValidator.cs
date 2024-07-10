@@ -11,9 +11,9 @@ namespace KhaiMarket.Server.Features.ProductFeature.AddProduct;
 
 public class AddProductValidator : AbstractValidator<AddProductRequest>
 {
-    private readonly ValidateProductService _service;
+    private readonly ProductValidatorService _service;
 
-    public AddProductValidator(ValidateProductService service)
+    public AddProductValidator(ProductValidatorService service)
     {
         _service = service;
 
@@ -32,14 +32,14 @@ public class AddProductValidator : AbstractValidator<AddProductRequest>
     }
 }
 
-public class ValidateProductService
+public class ProductValidatorService
 {
     private readonly IDbConnectionFactory _db;
-    public ValidateProductService(IDbConnectionFactory db)
+    public ProductValidatorService(IDbConnectionFactory db)
     {
         _db = db;
     }
-    public async Task<bool> IsCategoryAvailable(int id)
+    public async Task<bool> IsCategoryAvailable(int? id)
     {
         var sql = "SELECT 1 FROM CATEGORIES WHERE Id = @Id";
         var connection = _db.CreateOpenConnection();
@@ -47,7 +47,7 @@ public class ValidateProductService
 
         return result == 1;
     }
-    public async Task<bool> IsBrandAvailable(int id)
+    public async Task<bool> IsBrandAvailable(int? id)
     {
         var sql = "SELECT 1 FROM BRANDS WHERE Id = @Id";
         var connection = _db.CreateOpenConnection();

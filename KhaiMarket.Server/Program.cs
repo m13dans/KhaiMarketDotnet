@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using KhaiMarket.Server.Features.ProductFeature.AddProduct;
+using KhaiMarket.Server.Features.CategoryFeature;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,9 +23,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
 
 
 builder.Services.AddTransient<IDbConnectionFactory, DbConnectionFactory>();
+
 builder.Services.AddProductServices();
+builder.Services.AddCategoryServices();
 
 builder.Services.AddScoped<IValidator<AddProductRequest>, AddProductValidator>();
+builder.Services.AddScoped<IValidator<AddCategoryRequest>, AddCategoryValidator>();
+
 builder.Services.AddExceptionHandler<GlobalExeption>();
 builder.Services.AddProblemDetails();
 
@@ -43,5 +48,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapProductEndPoint();
+app.MapCategoryEndpoint();
 
 app.Run();

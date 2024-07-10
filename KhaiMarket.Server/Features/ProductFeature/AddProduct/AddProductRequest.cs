@@ -13,7 +13,7 @@ public record AddProductRequest
     public decimal Price { get; init; }
     public string ImageUrl { get; init; } = string.Empty;
     public decimal DiscountPrice { get; init; }
-    public int CategoryId { get; init; }
-    public int BrandId { get; init; }
+    public int? CategoryId { get; init; }
+    public int? BrandId { get; init; }
     public string SKU { get; init; } = string.Empty;
 }
