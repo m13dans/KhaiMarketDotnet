@@ -21,14 +21,6 @@ public class ValidationFilter<TRequest> : IEndpointFilter
     {
         var request = context.Arguments.OfType<TRequest>().First();
 
-        var validationContext = new ValidationContext(request!);
-        var validationResult = new List<ValidationResult>();
-        var isValid = Validator.TryValidateObject(request!, validationContext, validationResult, true);
-        if (!isValid)
-        {
-            return TypedResults.Problem();
-        }
-
         var result = await _validator.ValidateAsync(request, context.HttpContext.RequestAborted);
 
         if (!result.IsValid)

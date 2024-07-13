@@ -1,13 +1,13 @@
 using KhaiMarket.Server.Entities;
-using KhaiMarket.Server.Features.ProductFeature;
+using KhaiMarket.Server.Features.Products;
 using KhaiMarket.Server.Infrastructure;
 using KhaiMarket.Server.Infrastructure.Extensions;
 using KhaiMarket.Server.Middleware;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
-using KhaiMarket.Server.Features.ProductFeature.AddProduct;
-using KhaiMarket.Server.Features.CategoryFeature;
+using KhaiMarket.Server.Features.Products.AddProduct;
+using KhaiMarket.Server.Features.Categories;
 
 var builder = WebApplication.CreateBuilder(args);
 
